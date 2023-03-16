@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang=ja>
   <head>
     <title>モンティ・カルロ法による円周率の計算</title>
     <style>
@@ -41,10 +41,10 @@
           const dx = x - width / 2;
           const dy = y - height / 2;
           if (dx * dx + dy * dy < (width / 2) * (width / 2)) {
-            context.fillStyle = "#000000";
+            context.fillStyle = "#000000"; // 緑を黒に変更
             count++;
           } else {
-            context.fillStyle = "#FF0000";
+            context.fillStyle = "#00FF00"; // 黒を緑に変更
           }
           context.beginPath();
           context.arc(x, y, 1, 0, 2 * Math.PI);
@@ -58,3 +58,4 @@
     </script>
   </body>
 </html>
+
