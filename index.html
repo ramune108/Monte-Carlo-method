@@ -14,7 +14,11 @@
   <body>
     <h1>モンテカルロ法による円周率の計算</h1>
     <canvas id="canvas"></canvas>
-    <button onclick="start()">計算開始</button>
+    <div>
+      <label for="iterations">試行回数:</label>
+      <input type="number" id="iterations" value="1000000" />
+      <button onclick="start()">計算開始</button>
+    </div>
     <ul id="results"></ul>
 
     <script>
@@ -34,7 +38,7 @@
 
         let count = 0;
         let total = 0;
-        const n = 1000000;
+        const n = Number(document.getElementById("iterations").value);
         for (let i = 0; i < n; i++) {
           const x = Math.random() * width;
           const y = Math.random() * height;
