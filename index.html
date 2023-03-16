@@ -9,16 +9,26 @@
         left: 50%;
         transform: translate(-50%, -50%);
       }
+
+      ul {
+        position: absolute;
+        top: 550px;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      body {
+        background-color: #F2F2F2;
+      }
     </style>
   </head>
   <body>
     <h1>モンテカルロ法による円周率の計算</h1>
     <canvas id="canvas"></canvas>
-    <div>
-      <label for="iterations">試行回数:</label>
-      <input type="number" id="iterations" value="1000000" />
-      <button onclick="start()">計算開始</button>
-    </div>
+    <button onclick="start()">計算開始</button>
     <ul id="results"></ul>
 
     <script>
@@ -38,17 +48,17 @@
 
         let count = 0;
         let total = 0;
-        const n = Number(document.getElementById("iterations").value);
+        const n = document.getElementById("numTrials").value;
         for (let i = 0; i < n; i++) {
           const x = Math.random() * width;
           const y = Math.random() * height;
           const dx = x - width / 2;
           const dy = y - height / 2;
           if (dx * dx + dy * dy < (width / 2) * (width / 2)) {
-            context.fillStyle = "#222785";
+            context.fillStyle = "#9b2321";
             count++;
           } else {
-            context.fillStyle = "#e5dc7a";
+            context.fillStyle = "#66e4e3";
           }
           context.beginPath();
           context.arc(x, y, 1, 0, 2 * Math.PI);
@@ -57,10 +67,4 @@
         }
 
         const pi = (4 * count) / total;
-        const result = document.createElement("li");
-        result.textContent = `n = ${n}, π ≈ ${pi.toFixed(10)}`;
-        document.getElementById("results").appendChild(result);
-      }
-    </script>
-  </body>
-</html>
+        const result
