@@ -4,25 +4,29 @@
     <meta charset="UTF-8">
     <title>モンテカルロ法による円周率の計算</title>
     <style>
+      body {
+        background-color: #eedcb3;
+      }
       #canvas {
         position: absolute;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
       }
-      table {
-        margin-top: 50px;
-        margin-bottom: 50px;
-        border-collapse: collapse;
-        width: 50%;
+      #table {
+        float: right;
+        margin-right: 20px;
+        margin-top: 20px;
       }
-      th, td {
-        padding: 10px;
-        text-align: left;
-        border-bottom: 1px solid #ddd;
+      #table td {
+        width: 80px;
+        height: 80px;
       }
-      th {
-        background-color: #f2f2f2;
+      .red {
+        background-color: #9b2321;
+      }
+      .blue {
+        background-color: #66e4e3;
       }
     </style>
   </head>
@@ -32,17 +36,17 @@
     <label>試行回数: </label>
     <input type="number" id="n" value="1000000">
     <button onclick="start()">計算開始</button>
-
-    <table id="results">
-      <thead>
-        <tr>
-          <th>試行回数</th>
-          <th>計算結果</th>
-        </tr>
-      </thead>
-      <tbody>
-      </tbody>
+    <table id="table">
+      <tr>
+        <td class="red"></td>
+        <td>円の内部</td>
+      </tr>
+      <tr>
+        <td class="blue"></td>
+        <td>円の外部</td>
+      </tr>
     </table>
+    <ul id="results"></ul>
 
     <script>
       function start() {
@@ -80,14 +84,9 @@
         }
 
         const pi = (4 * count) / total;
-        const result = document.createElement("tr");
-        const nColumn = document.createElement("td");
-        const piColumn = document.createElement("td");
-        nColumn.textContent = n;
-        piColumn.textContent = pi.toFixed(10);
-        result.appendChild(nColumn);
-        result.appendChild(piColumn);
-        document.querySelector("#results tbody").appendChild(result);
+        const result = document.createElement("li");
+        result.textContent = `n = ${n}, π ≈ ${pi.toFixed(10)}`;
+        document.getElementById("results").appendChild(result);
       }
     </script>
   </body>
