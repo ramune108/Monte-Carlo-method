@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>モンティ・カルロ法による円周率の計算</title>
+    <title>モンテカルロ法による円周率の計算</title>
     <style>
       #canvas {
         position: absolute;
@@ -12,7 +12,7 @@
     </style>
   </head>
   <body>
-    <h1>モンティ・カルロ法による円周率の計算</h1>
+    <h1>モンテカルロ法による円周率の計算</h1>
     <canvas id="canvas"></canvas>
     <button onclick="start()">計算開始</button>
     <p id="result"></p>
@@ -41,10 +41,10 @@
           const dx = x - width / 2;
           const dy = y - height / 2;
           if (dx * dx + dy * dy < (width / 2) * (width / 2)) {
-            context.fillStyle = "#000000"; // 緑を黒に変更
+            context.fillStyle = "#00FF00"; // 緑を黒に変更
             count++;
           } else {
-            context.fillStyle = "#00FF00"; // 黒を緑に変更
+            context.fillStyle = "#000000"; // 黒を緑に変更
           }
           context.beginPath();
           context.arc(x, y, 1, 0, 2 * Math.PI);
