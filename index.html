@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang=ja>
+<html>
   <head>
     <title>モンティ・カルロ法による円周率の計算</title>
     <style>
@@ -13,8 +13,10 @@
   </head>
   <body>
     <h1>モンティ・カルロ法による円周率の計算</h1>
-    <div id="canvas"></div>
-    
+    <canvas id ="canvas"></canvas>
+    <button onclick="start()">計算開始</button>
+    <p id="result"></p>
+
     <script>
       function start() {
         const canvas = document.getElementById("canvas");
@@ -54,9 +56,5 @@
         document.getElementById("result").textContent = `π ≈ ${pi}`;
       }
     </script>
-    <button onclick="start()">計算開始</button>
-    <p id="result"></p>
-
   </body>
 </html>
-
